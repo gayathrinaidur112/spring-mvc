@@ -13,29 +13,12 @@ public class addController{
 public ModelAndView add(HttpServletRequest request,HttpServletResponse response)
 {
 	ModelAndView mv = new ModelAndView();
-	int c = Integer.parseInt(request.getParameter("t1"));
-	int q= Integer.parseInt(request.getParameter("t2"));
-	int tax=0;
-	if(c<=5000)
-	{
-		tax=(c*5)/100;
-		tax=tax*q;
-	}
-	else if(c>5000 && c<=50000)
-	{
-
-		tax=(c*10)/100;
-		tax=tax*q;
-		
-	}
-	else
-	{
-		tax=(c*1)/100;
-		tax=tax*q;
-	}
+	int sum = 0;
+	int a = Integer.parseInt(request.getParameter("t1"));
+	int b = Integer.parseInt(request.getParameter("t2"));
+    sum=a+b;
 	mv.setViewName("results");
-	mv.addObject("results",tax);
-	return mv;
-	
+	mv.addObject("results",sum);
+	return mv;	
 }
 }
